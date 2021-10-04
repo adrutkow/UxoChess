@@ -2,13 +2,13 @@ import random
 import pygame
 import copy
 
-
 WINDOW = pygame.display.set_mode([400, 400])
 BOARD_IMAGE = pygame.image.load("board.png").convert()
 PIECES_IMAGE = pygame.image.load("pieces.png").convert_alpha()
 PIECE_SPRITES = []
 for i in range(0, 12):
-    PIECE_SPRITES.append(PIECES_IMAGE.subsurface([i % 6 * 50, int(i/6)*50, 50, 50]))
+    PIECE_SPRITES.append(PIECES_IMAGE.subsurface([i % 6 * 50, int(i / 6) * 50, 50, 50]))
+
 
 class Piece:
     def __init__(self, color, position):
@@ -59,8 +59,6 @@ class Piece:
                     break
                 if current_move == own_color:
                     break
-
-
 
 
 class Pawn(Piece):
@@ -116,7 +114,6 @@ class Knight(Piece):
                 continue
             if current_move == own_color:
                 continue
-
 
 
 class Bishop(Piece):
@@ -296,7 +293,6 @@ while True:
             move = random.choice(get_all_moves(turn))
             move.move(board)
             board_after_move(board, move)
-
 
     draw_board2()
     pygame.display.update()
